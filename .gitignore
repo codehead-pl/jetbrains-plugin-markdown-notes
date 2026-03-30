@@ -1,0 +1,27 @@
+# Build output
+build/
+
+# Gradle
+.gradle/
+.kotlin/
+
+# IntelliJ Platform sandbox (created by runIde)
+.intellijPlatform/
+
+# IDE project files
+.idea/
+*.iml
+out/
+
+# Claude Code
+.claude/
+
+# Plugin data (per-project annotation files)
+.annotations/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Development artifacts
+icon-concepts/

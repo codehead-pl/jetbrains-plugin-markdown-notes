@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>com.mdnotes</id>
+    <name>Markdown Notes</name>
+    <vendor>markdown-notes</vendor>
+    <version>1.0.0</version>
+
+    <description><![CDATA[
+    Add notes directly to text in the JetBrains Markdown preview.
+    Select text, add notes and optional tags, choose a highlight color,
+    and see your notes rendered in the preview. Notes are stored
+    as sidecar JSON files and can be version-controlled alongside your documents.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.intellij.plugins.markdown</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectService
+            serviceImplementation="com.mdnotes.storage.AnnotationStorageService"/>
+
+        <toolWindow
+            id="Markdown Notes"
+            anchor="right"
+            icon="/icons/toolwindow.svg"
+            factoryClass="com.mdnotes.toolwindow.AnnotationToolWindowFactory"/>
+
+        <vfs.asyncListener
+            implementation="com.mdnotes.listeners.AnnotationFileListener"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="org.intellij.markdown">
+        <browserPreviewExtensionProvider
+            implementation="com.mdnotes.preview.NotesBrowserExtension$Provider"/>
+    </extensions>
+
+</idea-plugin>
